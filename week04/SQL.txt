@@ -16,8 +16,8 @@ INNER JOIN `Course`
 ON `Course`.name = `enroll`.c_name
 WHERE `credits` < 3;
 
-SELECT c_name
+SELECT DISTINCT c_name
 FROM `enroll`
-INNOR JOIN `Student`
+INNER JOIN `Student`
 ON `Student`.id = `enroll`.stud_id
 WHERE `native language` = 'English';

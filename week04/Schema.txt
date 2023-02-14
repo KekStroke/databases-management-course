@@ -53,7 +53,7 @@ INSERT INTO `Specialization` (`name`) VALUES
 INSERT INTO `Course` (`name`, `credits`) VALUES
   ('ML', '5'),
   ('TM', '3'),
-  ('RL', '3'),
+  ('RL', '1'),
   ('SNA', '2'),
   ('DB', '6');
   
