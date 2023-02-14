@@ -1,0 +1,107 @@
+CREATE TABLE IF NOT EXISTS `Student` (
+  `id` int(6) unsigned NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `native language` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+CREATE TABLE IF NOT EXISTS `Specialization` (
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`name`)
+);
+CREATE TABLE IF NOT EXISTS `Course` (
+  `name` varchar(200) NOT NULL,
+  `credits` int(2) NOT NULL,
+  PRIMARY KEY (`name`)
+);
+CREATE TABLE IF NOT EXISTS `takes` (
+  `stud_id` int(6) unsigned NOT NULL,
+  `spec_name` varchar(200) NOT NULL,
+  FOREIGN KEY (stud_id) REFERENCES Student (id),
+  FOREIGN KEY (spec_name) REFERENCES Specialization (name),
+  PRIMARY KEY (`stud_id`, `spec_name`)
+);
+CREATE TABLE IF NOT EXISTS `enroll` (
+  `stud_id` int(6) unsigned NOT NULL,
+  `c_name` varchar(200) NOT NULL,
+  FOREIGN KEY (stud_id) REFERENCES Student (id),
+  FOREIGN KEY (c_name) REFERENCES Course (name),
+  PRIMARY KEY (`stud_id`, `c_name`)
+);
+
+INSERT INTO `Student` (`id`, `name`, `native language`) VALUES
+  ('1', 'Nikita Bogdankov', 'Russian'),
+  ('2', 'Anvar Iskhakov', 'Russian'),
+  ('3', 'Arsen Mutalapov', 'Russian'),
+  ('4', 'Dmitry Naumov', 'Russian'),
+  ('5', 'Kamil Almetov', 'Tatar'),
+  ('6', 'Kamil Iskhakov', 'Tatar'),
+  ('7', 'Albert Avkhadeev', 'Russian'),
+  ('8', 'David Eje', 'English'),
+  ('9', 'Wilson Ogbonna', 'English'),
+  ('10', 'Wesam Naseer', 'Arabic'),
+  ('11', 'Ahmad Alhussin', 'English'),
+  ('12', 'Ahmad Sarhan', 'English');
+  
+  
+INSERT INTO `Specialization` (`name`) VALUES
+  ('AI'),
+  ('SD'),
+  ('RO'),
+  ('CS'),
+  ('DS');
+  
+INSERT INTO `Course` (`name`, `credits`) VALUES
+  ('ML', '5'),
+  ('TM', '3'),
+  ('RL', '3'),
+  ('SNA', '2'),
+  ('DB', '6');
+  
+INSERT INTO `enroll` (`stud_id`, `c_name`) VALUES
+  ('1', 'ML'),
+  ('2', 'ML'),
+  ('3', 'ML'),
+  ('4', 'ML'),
+  ('5', 'ML'),
+  ('6', 'ML'),
+  ('7', 'ML'),
+  ('8', 'ML'),
+  ('9', 'ML'),
+  ('10', 'ML'),
+  ('11', 'ML'),
+  ('12', 'ML'),
+  ('1', 'RL'),
+  ('2', 'RL'),
+  ('6', 'TM'),
+  ('7', 'SNA'),
+  ('8', 'SNA'),
+  ('9', 'SNA'),
+  ('10', 'SNA'),
+  ('11', 'SNA'),
+  ('12', 'SNA'),
+  ('1', 'DB'),
+  ('2', 'DB'),
+  ('3', 'DB'),
+  ('4', 'DB'),
+  ('5', 'DB'),
+  ('7', 'DB'),
+  ('8', 'DB'),
+  ('9', 'DB'),
+  ('10', 'DB'),
+  ('11', 'DB'),
+  ('12', 'DB');
+  
+INSERT INTO `takes` (`stud_id`, `spec_name`) VALUES
+  ('1', 'AI'),
+  ('2', 'AI'),
+  ('3', 'DS'),
+  ('4', 'DS'),
+  ('5', 'DS'),
+  ('6', 'RO'),
+  ('7', 'CS'),
+  ('8', 'SD'),
+  ('9', 'SD'),
+  ('10', 'SD'),
+  ('11', 'SD'),
+  ('12', 'SD');
+  

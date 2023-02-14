@@ -1,0 +1,23 @@
+SELECT name
+FROM Student
+WHERE `native language` != 'Russian';
+
+SELECT name
+FROM `Student`
+INNER JOIN `takes`
+ON `Student`.id = `takes`.stud_id
+WHERE `spec_name` = 'RO';
+
+SELECT `Student`.name, `Course`.name
+FROM `Student`
+INNER JOIN `enroll`
+ON `Student`.id = `enroll`.stud_id
+INNER JOIN `Course`
+ON `Course`.name = `enroll`.c_name
+WHERE `credits` < 3;
+
+SELECT c_name
+FROM `enroll`
+INNOR JOIN `Student`
+ON `Student`.id = `enroll`.stud_id
+WHERE `native language` = 'English';
