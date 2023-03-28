@@ -1,0 +1,3 @@
+For Read committed isolation level, T1 only sees committed changes to accounts with group_id=2. T1 first reads only Mike's account with balance 73, then after T2 moves Bob to group 2 and commits, T1 reads again and sees both Mike with balance 73 and Bob with balance 100. T1 adds 15 to each account, resulting in a balance of 88 for Mike and of 115 for Bob, and then commits.
+
+For Repeatable read isolation level, T1 takes a snapshot of data when it reads accounts with group_id=2 and doesn't see changes made by T2 after that. T1 reads only Mike with balance 100, even after T2 moves Bob to group 2 and commits. T1 adds 15 to the account, resulting in a balance of 88 for Mike, and then commits.
