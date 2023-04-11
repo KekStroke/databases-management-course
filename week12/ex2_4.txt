@@ -1,0 +1,4 @@
+MATCH (f:Fighter)
+WITH f, size([(f)-[:beats]->() | 1]) AS num_wins, size([()-[:beats]->(f) | 1]) AS num_losses
+WHERE num_wins=0 or num_losses=0
+RETURN f.name, num_wins, num_losses

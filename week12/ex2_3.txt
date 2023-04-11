@@ -1,0 +1,5 @@
+MATCH (f:Fighter)
+WITH f, size([(f)-[:beats]->() | 1])+size([()-[:beats]->(f) | 1]) AS num_matches
+ORDER BY num_matches DESC
+RETURN f.name, num_matches
+LIMIT 1

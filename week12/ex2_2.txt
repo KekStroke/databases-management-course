@@ -1,0 +1,2 @@
+MATCH (f:Fighter)-[b:beats]->(f2:Fighter), (f2:Fighter)- [b2:beats] -> (f:Fighter)
+RETURN COUNT(b), f.name

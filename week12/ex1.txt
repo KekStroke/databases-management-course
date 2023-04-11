@@ -9,6 +9,7 @@ CREATE(khabib:Fighter{name:'Khabib Nurmagomedov', weight:'155'}),
 (matt:Fighter{name:'Matt Hamill', weight:'185'}),
 (brandon:Fighter{name:'Brandon Vera', weight:'205'}),
 (frank:Fighter{name:'Frank Mir', weight:'230'}),
+(brok:Fighter{name:'Brock Lesnar', weight:'230'}),
 (kelvin:Fighter{name:'Kelvin Gastelum', weight:'185'});
 
 MATCH (a:Fighter), (b:Fighter)
